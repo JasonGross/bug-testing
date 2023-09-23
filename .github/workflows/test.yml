@@ -37,6 +37,6 @@ jobs:
           conda activate supabase
           conda -V
           python -V
-          conda install -y supabase
+          conda install -y -c conda-forge supabase
           python -c 'import supabase'
         shell: bash -el {0}
