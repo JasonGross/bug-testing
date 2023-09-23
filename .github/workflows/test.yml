@@ -26,10 +26,17 @@ jobs:
       - uses: actions/checkout@v3
       - name: Setup Miniconda
         uses: conda-incubator/setup-miniconda@v2.2.0
-      - run: |
+      - name: Conda info
+        shell: bash -el {0}
+        run: |
+          conda info
           conda -V
           python -V
+      - run: |
           conda create -n supabase -y python=3.11
           conda activate supabase
+          conda -V
+          python -V
           conda install -y supabase
           python -c 'import supabase'
+        shell: bash -el {0}
